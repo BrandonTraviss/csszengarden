@@ -1,6 +1,6 @@
 /* FONT IMPORTS AS TO NOT CHANGE HTML */
-@import url('https://fonts.googleapis.com/css2?family=Rubik+Puddles&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Englebert&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Henny+Penny&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap');
 
 /* RESET : removes all padding and margin from elements and sets box-sizing*/
 * {
@@ -17,8 +17,9 @@
     --secondary:#FCA311;
     --tertiary:#000000;
     --accent:#E5E5E5;
-    --font-header: "Rubik Puddles", system-ui;
-    --font-body: "Englebert", sans-serif;
+    --font-header-h1: "Henny Penny", system-ui;
+    --font-headers: "Newsreader", sans-serif;
+    --font-body: "Newsreader", sans-serif;
 }
 
 /* Assignment Required CSS Selectors */
@@ -89,22 +90,24 @@ h3 + p {
 
 /* General Sibling Combinator: targets all <h2> elements that follow an <h1> element */
 h1 ~ h2 {
+    font-family: var(--font-body);
   font-size: 1rem;
   letter-spacing: .25rem;
 }
 
 /* OTHER STYLING FOR WEBSITE NOT RELATED TO REQUIRED CSS */
-h1,
 h2,
 h3,
 h4,
 h5,
 h6{
-    font-family: var(--font-header);
+    font-variant: small-caps;
+    font-family: var(--font-headers);
 }
 /* SETUP FONT SIZES */
 h1 {
-  font-size: clamp(2rem, 6vw, 6rem);
+    font-family: var(--font-header-h1);
+    font-size: clamp(2rem, 6vw, 6rem);
 }
 h2 {
   font-size: clamp(1.75rem, 3vw, 2.5rem);
