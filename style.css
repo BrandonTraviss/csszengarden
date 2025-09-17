@@ -1,0 +1,212 @@
+/* FONT IMPORTS AS TO NOT CHANGE HTML */
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Puddles&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Englebert&display=swap');
+
+/* RESET : removes all padding and margin from elements and sets box-sizing*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Variables */
+/* RGBA used to show background image */
+:root{
+    --base:rgba(240, 240, 240, 0.85); /*Hex is #F0F0F0;*/
+    --primary:#14213D;
+    --secondary:#FCA311;
+    --tertiary:#000000;
+    --accent:#E5E5E5;
+    --font-header: "Rubik Puddles", system-ui;
+    --font-body: "Englebert", sans-serif;
+}
+
+/* Assignment Required CSS Selectors */
+/* Type Selector: targets all <body> elements */
+body {
+    font-family: var(--font-body);
+    line-height: 1.5;
+}
+
+/* Class selector: targets elements with class "summary" */
+.summary {
+    display: flex;
+    align-items: center;
+    background-color: var(--secondary);
+    border: 10px solid var(--primary);
+}
+
+/* ID selector: targets the element with id "zen-summary" */
+#zen-summary {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 5rem;
+    text-align: center;
+}
+
+/* Attribute selector: targets elements with a role attribute set to "banner" */
+[role="banner"] {
+    font-variant: small-caps;
+    text-align: center;
+    color:var(--accent);
+    background-color: var(--primary);
+}
+
+/* Pseudo-class selector: targets <a> elements when hovered */
+a:hover {
+    text-decoration: underline;
+    color: #004285;
+}
+
+/* Pseudo-element selector: targets the first letter of any <p> */
+p::first-letter {
+    font-size: clamp(1.4rem, 2vw, 1.55rem);
+    font-weight: bold;
+}
+
+/* Descendant combinator: targets <div> inside #zen-supporting */
+#zen-supporting div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+/* Child combinator: targets <li> that are direct children of <ul> */
+div > h3 {
+  background-color: var(--accent);
+  color: var(--tertiary);
+  padding: 1rem;
+  border-radius: 15px;
+}
+
+/* Direct Sibling Combinator: targets <p> that immediately follow an <h3> */
+h3 + p {
+  margin-top: 0.5rem;
+}
+
+/* General Sibling Combinator: targets all <h2> elements that follow an <h1> element */
+h1 ~ h2 {
+  font-size: 1rem;
+  letter-spacing: .25rem;
+}
+
+/* OTHER STYLING FOR WEBSITE NOT RELATED TO REQUIRED CSS */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+    font-family: var(--font-header);
+}
+/* SETUP FONT SIZES */
+h1 {
+  font-size: clamp(2rem, 6vw, 6rem);
+}
+h2 {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+}
+
+h3 {
+  font-size: clamp(1.5rem, 2vw, 2.5rem);
+}
+
+p,
+a {
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+}
+p{
+    max-width: 75ch;
+    text-indent: 1rem;
+}
+
+/* Link Accesibility Colour change */
+a {
+    color: #0000EB;
+    font-weight: bolder;
+    text-decoration: none;
+}
+
+/* Styling */
+/* Pseudo element added before the page-wrapper this is done for support with safari browsers on mobile */
+/* Element is positioned at the top left of the screen with 100% width and Height a z-index of -1 ensures the image is behind the page-wrapper */
+/* center vertical and center horizontal for best visuals */
+.page-wrapper::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: url('./img/pexels-veeterzy-38136.jpg') no-repeat center center;
+}
+.page-wrapper{
+    background-color: var(--base);
+}
+.preamble{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    gap: 1rem;
+}
+
+.preamble h3{
+    width: 100%;
+    text-align: center;
+    border: 1px solid var(--tertiary);
+}
+
+#zen-supporting div h3{
+    border: 1px solid var(--tertiary);
+    width: 100%;
+    text-align: center;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    background-color: var(--primary);
+    gap: 2.5rem;
+    padding-block: 2rem;
+}
+
+footer a {
+    color: var(--base);
+}
+
+footer a:hover {
+    text-decoration: none;
+    color: var(--secondary);
+}
+
+.wrapper{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    place-content: center;
+}
+
+.wrapper ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style: none;
+    padding-block: 1rem;
+}
+
+.wrapper div h3{
+    text-align: center;
+    border-bottom: 1px solid var(--tertiary);
+    border-top: 1px solid var(--tertiary);
+    border-radius: 0;
+}
+/* Simple media query for the Aside menu which is now in the place of the footer */
+@media only screen and (max-width: 768px) {
+  .wrapper {
+    grid-template-columns: repeat(1,1fr);
+  }
+}
